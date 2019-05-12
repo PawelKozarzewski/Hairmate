@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SalonList">
+
+    <TextView
+        android:id = "@+id/name_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:padding="10sp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="Nazwa"/>
+
+    <EditText
+        android:id="@+id/salon_name"
+        android:layout_below="@id/name_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_text_background_opinion"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:layout_marginTop="4dp"
+        android:padding="8dp"
+        android:hint="Nazwa"/>
+
+    <TextView
+        android:id = "@+id/address_text"
+        android:layout_below="@id/salon_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:padding="10sp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="Adres"/>
+
+
+    <LinearLayout
+        android:id="@+id/address_layout"
+        android:layout_below="@id/address_text"
+        android:layout_width= "fill_parent"
+        android:layout_height= "wrap_content"
+        android:orientation = "horizontal">
+
+        <EditText
+            android:id="@+id/address_street"
+            android:layout_below="@id/address_text"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_background_opinion"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="7dp"
+            android:layout_marginTop="4dp"
+            android:padding="8dp"
+            android:hint="Ulica"
+            android:layout_weight="1"/>
+
+        <EditText
+            android:id="@+id/address_city"
+            android:background="@drawable/edit_text_background_opinion"
+            android:layout_below ="@id/address_text"
+            android:layout_toRightOf = "@id/address_street"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="7dp"
+            android:layout_marginTop="4dp"
+            android:padding="8dp"
+            android:hint="Miasto"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id = "@+id/phone_number_text"
+        android:layout_below="@id/address_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:padding="10sp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="Telefon"/>
+
+    <EditText
+        android:id="@+id/phone_number"
+        android:layout_below="@id/phone_number_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_text_background_opinion"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:layout_marginTop="4dp"
+        android:padding="8dp"
+        android:hint="Telefon"
+        android:inputType="phone"/>
+
+    <TextView
+        android:id = "@+id/email_text"
+        android:layout_below="@id/phone_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:padding="10sp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="E-mail"/>
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_below="@id/email_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_text_background_opinion"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:layout_marginTop="4dp"
+        android:padding="8dp"
+        android:hint="E-mail"
+        android:inputType="textEmailAddress"/>
+
+    <TextView
+        android:id = "@+id/description_text"
+        android:layout_below="@id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:padding="10sp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="Opis"/>
+
+    <EditText
+        android:id="@+id/description"
+        android:layout_below="@id/description_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_text_background_opinion"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:layout_marginTop="4dp"
+        android:padding="10dp"
+        android:hint="Opis"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="15dp"
+        android:elevation="8dp"
+        android:scaleType="center"
+        android:visibility = "gone"
+        android:src="@drawable/checkmark_round" />
+
+
+</RelativeLayout>

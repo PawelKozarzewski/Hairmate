@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.patryk.hairfire">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.NoActionBar">
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".OwnerActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".SalonList" />
+        <activity android:name=".OwnerSalonList" />
+        <activity android:name=".AddSalonForm" />
+        <activity android:name=".Login" />
+        <activity android:name=".Register" />
+        <activity android:name=".UserProfile" />
+        <activity
+            android:name=".OwnerSalonView"
+            android:label="@string/title_activity_salon_view"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SalonView"
+            android:label="@string/title_activity_salon_view"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".VisitsList" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAWavKXXNOPQQOutPcbU5Ssdx-nQfmDKSQ" />
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <activity android:name=".OwnerSalonServiceList" />
+        <activity android:name=".AddServiceForm"></activity>
+    </application>
+
+</manifest>

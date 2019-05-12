@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AddServiceForm">
+
+    <TextView
+        android:id = "@+id/name_service_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:padding="10sp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="Nazwa usługi"/>
+
+    <EditText
+        android:id="@+id/service_name"
+        android:layout_below="@id/name_service_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_text_background_opinion"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:layout_marginTop="4dp"
+        android:padding="8dp"
+        android:hint="Nazwa"/>
+
+    <TextView
+        android:id = "@+id/price_text"
+        android:layout_below="@id/service_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:padding="10sp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="Cena"/>
+
+    <EditText
+        android:id="@+id/price"
+        android:layout_below="@id/price_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_text_background_opinion"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:layout_marginTop="4dp"
+        android:padding="8dp"
+        android:hint="Cena"
+        android:inputType="numberDecimal"/>
+
+
+
+
+    <TextView
+        android:id = "@+id/duration_text"
+        android:layout_below="@id/price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:padding="10sp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="Czas trwania (w minutach)"/>
+
+    <EditText
+        android:id="@+id/duration"
+        android:layout_below="@id/duration_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_text_background_opinion"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:layout_marginTop="4dp"
+        android:padding="8dp"
+        android:hint="Czas trwania"
+        android:inputType="number"/>
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/add"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="15dp"
+        android:elevation="8dp"
+        android:scaleType="center"
+        android:visibility = "gone"
+        android:src="@drawable/checkmark_round" />
+
+</RelativeLayout>

@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/calendar_layout">
+
+        <RelativeLayout
+            android:id="@+id/chosen_day_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/calendar_prev_button"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_centerVertical="true"
+                android:gravity="center_horizontal"
+                android:layout_marginRight="40dp"
+                android:drawableRight="@drawable/ic_arrow_left" />
+
+            <LinearLayout
+                android:id="@+id/date_display"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/calendar_prev_button"
+                android:layout_toRightOf="@id/calendar_prev_button"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/date_display_year"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="2019"
+                    android:textAppearance="@android:style/TextAppearance.Holo.Medium"
+                    android:textColor="#222222"
+                    android:textSize="20dp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/date_display_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="42dp"
+                    android:gravity="center_horizontal"
+                    android:text="1 Sty"
+                    android:textAppearance="@android:style/TextAppearance.Large"
+                    android:textColor="#222222"
+                    android:textSize="35dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/date_display_day"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="Niedziela"
+                    android:textAppearance="@android:style/TextAppearance.Medium"
+                    android:textColor="#222222"
+                    android:textSize="20dp" />
+
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/calendar_next_button"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_centerVertical="true"
+                android:gravity="center_horizontal"
+                android:layout_marginLeft="40dp"
+                android:layout_toEndOf="@id/date_display"
+                android:layout_toRightOf="@id/date_display"
+                android:drawableLeft="@drawable/ic_arrow_right" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/today_button"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_below="@id/chosen_day_layout"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorPrimary"
+            android:text="DALEJ"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:textSize="16dp" />
+
+        <LinearLayout
+            android:id="@+id/calendar_header"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:layout_below="@id/today_button">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="PON."
+                android:textColor="#222222" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="WT."
+                android:textColor="#222222" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="ŚR."
+                android:textColor="#222222" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="CZW."
+                android:textColor="#222222" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="PT."
+                android:textColor="#222222" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="SOB."
+                android:textColor="#222222" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="NIEDZ."
+                android:textColor="#222222" />
+        </LinearLayout>
+
+            <GridView
+                android:id="@+id/calendar_grid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/calendar_header"
+                android:numColumns="7"
+                android:background="#e5e5e5"
+                android:horizontalSpacing="1dp"
+                android:verticalSpacing="1dp"
+                android:stretchMode="columnWidth" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/hour_layout"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/choose_hour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10sp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="Wybierz godzinę wizyty"/>
+
+        <ListView
+            android:id="@+id/hour_listview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:choiceMode="singleChoice"
+            android:textSize="20sp"
+            android:listSelector="@color/colorPrimaryDark">
+        </ListView>
+
+        <Button
+            android:id="@+id/reservation_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_background"
+            android:visibility="gone"
+            android:text="Rezerwuj"/>
+
+        <TextView
+            android:id="@+id/login_information"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text="Zaloguj się, aby dokonać rezerwacji"/>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

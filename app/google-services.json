@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "493528772999",
+    "firebase_url": "https://hairmate-500d0.firebaseio.com",
+    "project_id": "hairmate-500d0",
+    "storage_bucket": "hairmate-500d0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:493528772999:android:49d2f877f16dfa71",
+        "android_client_info": {
+          "package_name": "com.example.patryk.hairfire"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "493528772999-3tr30ga22kpk6l8ron2podqnlbrcbd7u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.patryk.hairfire",
+            "certificate_hash": "1f6b2a8b78af225240ce3792aa78ba96c671464f"
+          }
+        },
+        {
+          "client_id": "493528772999-17ouolv4sm4k1vqmhegqdpql2kba84md.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWavKXXNOPQQOutPcbU5Ssdx-nQfmDKSQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "493528772999-17ouolv4sm4k1vqmhegqdpql2kba84md.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
