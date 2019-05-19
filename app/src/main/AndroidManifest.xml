@@ -61,7 +61,8 @@
             android:required="false" />
 
         <activity android:name=".OwnerSalonServiceList" />
-        <activity android:name=".AddServiceForm"></activity>
+        <activity android:name=".AddServiceForm" />
+        <activity android:name=".SalonGallery"></activity>
     </application>
 
 </manifest>

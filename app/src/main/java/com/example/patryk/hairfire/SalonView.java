@@ -33,6 +33,7 @@ public class SalonView extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager){
         SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
         adapter.addFragment(new InformationTab(), "Informacje");
+        adapter.addFragment(new SalonGallery(), "Galeria");
         adapter.addFragment(new CalendarView(),"Rezerwacja");
         adapter.addFragment(new OpinionTab(), "Opinie");
         viewPager.setAdapter(adapter);
