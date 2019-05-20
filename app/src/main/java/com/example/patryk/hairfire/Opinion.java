@@ -9,8 +9,9 @@ public class Opinion {
     private String author;
     private String date;
 
-    public Opinion(String salon_id, String title, String content, String author, String date) {
+    public Opinion(String salon_id, String photo, String title, String content, String author, String date) {
         this.salon_id = salon_id;
+        this.photo = photo;
         this.title = title;
         this.content = content;
         this.author = author;

@@ -9,7 +9,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.Timestamp;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -39,17 +41,27 @@ public class OpinionAdapter extends ArrayAdapter<Opinion> {
             holder.content = (TextView) row.findViewById(R.id.opinion_item_content);
             holder.author = (TextView) row.findViewById(R.id.opinion_item_author);
             holder.date = (TextView) row.findViewById(R.id.opinion_item_date);
+            holder.image = (ImageView) row.findViewById(R.id.opinion_photo);
+            holder.info = (TextView) row.findViewById(R.id.photo_info);
 
             row.setTag(holder);
         } else{
             holder = (ViewHolder) row.getTag();
         }
 
-
+        Picasso.get()
+                .load(data.get(position).getPhoto())
+                .centerCrop()
+                .resize(800,600)
+                .into(holder.image);
         holder.title.setText(data.get(position).getTitle());
         holder.content.setText(data.get(position).getContent());
         holder.author.setText("Autor: " + data.get(position).getAuthor());
         holder.date.setText("Data: " + data.get(position).getDate());
+
+        if(data.get(position).getPhoto().equals("null")){
+            holder.info.setVisibility(View.GONE);
+        }
 
 
         return row;
@@ -62,6 +74,8 @@ public class OpinionAdapter extends ArrayAdapter<Opinion> {
 
     static class ViewHolder{
         ImageView photo;
+        ImageView image;
+        TextView info;
         TextView title;
         TextView content;
         TextView author;

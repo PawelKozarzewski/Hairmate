@@ -48,7 +48,6 @@ public class SalonListAdapter extends ArrayAdapter<Salon> {
             holder = (ViewHolder) row.getTag();
         }
 
-
         Picasso.get()
                 .load(data.get(position).getPhoto())
                 .into(holder.photo);
