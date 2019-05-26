@@ -19,6 +19,7 @@ import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -59,15 +60,16 @@ public class CalendarView extends Fragment {
     private int chosenDayPosition = -1;
     public String date_choice;
     final ArrayList<String> hoursReserved = new ArrayList<String>();
-    String hourSelected;
-    String clientName;
+    Spinner spinner_services, spinner_hours;
+    String hourSelected, clientName, serviceSelected;
+    String serv_name, serv_price, serv_duration;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.calendar_view,container,false);
         calendar_layout = (RelativeLayout) view.findViewById(R.id.calendar_layout);
-        hourListView = (ListView) view.findViewById(R.id.hour_listview);
+//        hourListView = (ListView) view.findViewById(R.id.hour_listview);
         hour_layout = (LinearLayout) view.findViewById(R.id.hour_layout);
         header = (LinearLayout) view.findViewById(R.id.calendar_header);
         btnPrev = (Button) view.findViewById(R.id.calendar_prev_button);
@@ -81,7 +83,8 @@ public class CalendarView extends Fragment {
         loginInformation = (TextView) view.findViewById(R.id.login_information);
         reservationButton = (Button) view.findViewById(R.id.reservation_button);
         chooseHourText = (TextView) view.findViewById(R.id.choose_hour);
-
+        spinner_services = (Spinner) view.findViewById(R.id.services_spinner);
+        spinner_hours = (Spinner) view.findViewById(R.id.hours_spinner);
 
         updateDate(this.monthOffset);
         getHoursReserved();
@@ -115,10 +118,34 @@ public class CalendarView extends Fragment {
             }
         });
 
-        hourListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//        hourListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                hourSelected = (String) hourListView.getItemAtPosition(position);
+//            }
+//        });
+
+        spinner_hours.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                hourSelected = (String) hourListView.getItemAtPosition(position);
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                hourSelected = (String) parent.getItemAtPosition(position);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        spinner_services.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                serviceSelected = (String) parent.getItemAtPosition(position);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
 
@@ -141,9 +168,42 @@ public class CalendarView extends Fragment {
                 hours.add(i + ":" + "00");
            }
         }
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, hours);
-        hourListView.setAdapter(adapter);
 
+//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, hours);
+//        hourListView.setAdapter(adapter);
+
+        ArrayAdapter<String> dataAdapterHours = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, hours);
+        dataAdapterHours.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        dataAdapterHours.notifyDataSetChanged();
+        spinner_hours.setAdapter(dataAdapterHours);
+
+
+        db.collection("Services")
+                .whereEqualTo("salon_id", SalonList.salon_id)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            List<String> serviceList = new ArrayList<String>();
+                            for(QueryDocumentSnapshot document : task.getResult()) {
+                                serv_name = document.getString("name");
+                                serv_price = document.getString("price");
+                                serv_duration = document.getString("duration");
+
+                                String tmp = serv_name + "; " + serv_price + " zł; " + serv_duration + " minut";
+                                serviceList.add(tmp);
+                            }
+
+//                            Log.d("myTag", serviceList.get(0));
+
+                            ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, serviceList);
+                            dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                            dataAdapter.notifyDataSetChanged();
+                            spinner_services.setAdapter(dataAdapter);
+                        }
+                    }
+                });
     }
 
     public void getHoursReserved(){
@@ -191,6 +251,7 @@ public class CalendarView extends Fragment {
                         reservation.put("salon_name", InformationTab.salonName);
                         reservation.put("user_id", user.getUid());
                         reservation.put("user_name", clientName);
+                        reservation.put("service", serviceSelected);
 
                         db.collection("Visits")
                                 .add(reservation)

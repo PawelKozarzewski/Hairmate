@@ -48,6 +48,14 @@
                     android:paddingTop="1dp"
                     android:text="13:00"
                     android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/visit_service"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="1dp"
+                    android:text=""
+                    android:textSize="14sp" />
             </LinearLayout>
         </LinearLayout>
 

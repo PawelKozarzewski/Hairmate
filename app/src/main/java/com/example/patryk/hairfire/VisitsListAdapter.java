@@ -42,7 +42,7 @@ public class VisitsListAdapter extends ArrayAdapter<Visit> {
             holder.date = (TextView) row.findViewById(R.id.visit_date);
             holder.hour = (TextView) row.findViewById(R.id.visit_hour);
             holder.name = (TextView) row.findViewById(R.id.visit_salon_name);
-
+            holder.service = (TextView) row.findViewById(R.id.visit_service);
 
             row.setTag(holder);
         } else{
@@ -56,6 +56,7 @@ public class VisitsListAdapter extends ArrayAdapter<Visit> {
         holder.date.setText(data.get(position).getDate());
         holder.hour.setText(data.get(position).getHour());
         holder.name.setText(data.get(position).getSalonName());
+        holder.service.setText(data.get(position).getService());
 
         return row;
     }
@@ -70,6 +71,7 @@ public class VisitsListAdapter extends ArrayAdapter<Visit> {
         TextView date;
         TextView hour;
         TextView name;
+        TextView service;
     }
 }
 

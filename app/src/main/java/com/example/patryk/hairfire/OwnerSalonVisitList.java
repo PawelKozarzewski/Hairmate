@@ -27,7 +27,12 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.squareup.picasso.Picasso;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 public class OwnerSalonVisitList extends Fragment {
@@ -36,7 +41,7 @@ public class OwnerSalonVisitList extends Fragment {
     public static String salon_id, user_id;
     ListView visitList;
     List<Visit> visitsList = new ArrayList<>();
-    String date, hour, clientName;
+    String date, hour, clientName, service;
 
     @Nullable
     @Override
@@ -60,14 +65,13 @@ public class OwnerSalonVisitList extends Fragment {
                                 salon_id = document_1.getString("salon_id");
                                 user_id = document_1.getString("user_id");
                                 clientName = document_1.getString("user_name");
+                                service = document_1.getString("service");
 
-                                Visit visit = new Visit(clientName, "Data: " + date, "Godzina: " + hour);
+                                Visit visit = new Visit(clientName, "Data: " + date, "Godzina: " + hour, "Usługa: " + service);
                                 visitsList.add(visit);
                             }
 
-                            Log.d(TAG, "03_user_id: " + user_id);
-                            Log.d(TAG, "03__salon_id: " + salon_id);
-
+                            sort_visits(visitsList);
                             VisitsListAdapter adapter = new VisitsListAdapter(getActivity(), visitsList);
                             adapter.notifyDataSetChanged();
                             visitList.setAdapter(adapter);
@@ -77,5 +81,9 @@ public class OwnerSalonVisitList extends Fragment {
 
 
         return view;
+    }
+
+    private void sort_visits(List<Visit> list){
+        Collections.sort(list, new DateComparator());
     }
 }

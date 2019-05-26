@@ -6,7 +6,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/calendar_layout">
+        android:id="@+id/calendar_layout"
+        android:visibility="visible">
 
         <RelativeLayout
             android:id="@+id/chosen_day_layout"
@@ -185,16 +186,79 @@
             android:padding="10sp"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:text="Wybierz godzinę wizyty"/>
+            android:text="Wybierz usługę i godzinę"/>
 
-        <ListView
-            android:id="@+id/hour_listview"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10sp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text=""/>
+
+        <TextView
+            android:id="@+id/service_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="Usługa:"/>
+
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:choiceMode="singleChoice"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight=".28"
+            android:background="@drawable/background_spinner"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/services_spinner"
+                android:layout_width="fill_parent"
+                android:layout_height="60sp" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10sp"
             android:textSize="20sp"
-            android:listSelector="@color/colorPrimaryDark">
-        </ListView>
+            android:textStyle="bold"
+            android:text=""/>
+
+        <TextView
+            android:id="@+id/hour_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="Godzina:"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight=".28"
+            android:background="@drawable/background_spinner"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/hours_spinner"
+                android:layout_width="fill_parent"
+                android:layout_height="60sp" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10sp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text=""/>
 
         <Button
             android:id="@+id/reservation_button"
@@ -208,6 +272,7 @@
             android:id="@+id/login_information"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:visibility="gone"
             android:text="Zaloguj się, aby dokonać rezerwacji"/>
 
