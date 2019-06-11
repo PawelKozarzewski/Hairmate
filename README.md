@@ -1,2 +1,2 @@
 # Hairmate
-An Android app for finding local barbershops, booking a visit and sharing your opinion about received service.
+An Android app written in Java. Let's you find local barbershops, book a visit and share your opinion about received service.
